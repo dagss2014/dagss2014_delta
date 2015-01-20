@@ -26,6 +26,8 @@ public class FarmaciaControlador implements Serializable {
     private Farmacia farmaciaActual;
     private String nif;
     private String password;
+    private String direccion;
+    private String nombreFarmacia;
 
     @Inject
     private AutenticacionControlador autenticacionControlador;
@@ -37,6 +39,22 @@ public class FarmaciaControlador implements Serializable {
      * Creates a new instance of AdministradorControlador
      */
     public FarmaciaControlador() {
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getNombreFarmacia() {
+        return nombreFarmacia;
+    }
+
+    public void setNombreFarmacia(String nombreFarmacia) {
+        this.nombreFarmacia = nombreFarmacia;
     }
 
     public String getNif() {
@@ -88,4 +106,30 @@ public class FarmaciaControlador implements Serializable {
         }
         return destino;
     }
+    
+     public String modificarDatos() {
+        String destino = null;
+        destino = "Modificar";
+        return destino;
+    }
+    
+    public String cancelarModificacion() {
+        String destino = null;
+        destino = "index";
+                 
+        return destino;
+    }
+    
+    public String guardarModificacion() {
+        String destino = null;
+        
+        //actualizamos los datos                    
+        farmaciaActual = farmaciaDAO.actualizar(farmaciaActual);
+        destino = "index";
+        
+        return destino;
+    }
+     
+     
+    
 }

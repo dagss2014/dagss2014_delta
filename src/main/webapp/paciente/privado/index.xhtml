@@ -18,6 +18,12 @@
             </ui:define>
 
             <ui:define name="contenido">
+                <h:form>
+                    <h:panelGrid columns="1">
+                        <h:commandButton value="Modificar Datos" action="#{pacienteControlador.modificarDatos()}"/>
+                    </h:panelGrid>  
+                </h:form>
+                
             </ui:define>
 
         </ui:composition>

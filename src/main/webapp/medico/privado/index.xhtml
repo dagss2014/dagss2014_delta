@@ -15,10 +15,61 @@
             </ui:define>            
 
             <ui:define name="izquierda">
-                izquierda
+                <h:form>
+              <h:commandButton value="Modificar Datos" action="#{medicoControlador.modificarDatos()}"/>
+                </h:form>
             </ui:define>
 
             <ui:define name="contenido">
+                
+                   <h1>Citas</h1>
+ 
+    		<h:dataTable value="#{medicoControlador.listarCitas()}" var="c"
+    			styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row"
+    		>
+ 
+    			<h:column>
+    				<!-- column header -->
+    				<f:facet name="header">Fecha</f:facet>
+    				<!-- row record -->
+    				#{c.fecha.date}#{"-"}#{c.fecha.month+1}
+    			</h:column>
+ 
+    			<h:column>
+    				<f:facet name="header">Hora</f:facet>
+    				#{c.hora.hours}#{":"} #{c.hora.minutes}
+    			</h:column>
+ 
+    			<h:column>
+    				<f:facet name="header">Nombre</f:facet>
+    				#{c.paciente.nombre}
+    			</h:column>
+ 
+    			<h:column>
+    				<f:facet name="header">Apellido</f:facet>
+    				#{c.paciente.apellidos}
+    			</h:column>
+                        <h:column>
+    				<f:facet name="header">Nº Seguridad Social</f:facet>
+    				#{c.paciente.numeroSeguridadSocial}
+    			</h:column>
+                        <h:column>
+    				<f:facet name="header">Estado</f:facet>
+    				#{c.estado}
+    			</h:column>
+                        <h:column>
+    				<f:facet name="header">Opciones</f:facet>
+    				<h:form>
+                                <h:commandButton value="DetallesCita" action="#{medicoControlador.doShowCita(c.id)}"/>
+                                </h:form>
+                        </h:column>
+ 
+    		</h:dataTable>
+                   
+                    
+                
             </ui:define>
         </ui:composition>
 

@@ -25,10 +25,10 @@ import javax.inject.Inject;
 public class PacienteControlador implements Serializable {
 
     private Paciente pacienteActual;
+    private String password;
     private String dni;
     private String numeroTarjetaSanitaria;
     private String numeroSeguridadSocial;
-    private String password;
 
     @Inject
     private AutenticacionControlador autenticacionControlador;
@@ -132,6 +132,29 @@ public class PacienteControlador implements Serializable {
                 }
             }
         }
+        return destino;
+    }
+    
+    public String modificarDatos() {
+        String destino = null;
+        destino = "Modificar";
+        return destino;
+    }
+    
+    public String guardarModificacion() {
+        String destino = null;
+        
+        //actualizamos los datos                    
+        pacienteActual = pacienteDAO.actualizar(pacienteActual);
+        destino = "index";
+        
+        return destino;
+    }
+    
+    public String cancelarModificacion() {
+        String destino = null;
+        destino = "index";
+                 
         return destino;
     }
 }
