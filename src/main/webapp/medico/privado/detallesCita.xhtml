@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="/plantillas/plantillaGlobal.xhtml">
+
+            <ui:define name="tituloPagina">
+                Datos de la cita
+            </ui:define>            
+
+            <ui:define name="izquierda">
+                izquierda
+            </ui:define>
+
+            <ui:define name="contenido">
+                <h:form>
+                <h:panelGrid columns="2">
+                        <h:outputLabel for="medico" value="Medico:                      " />
+                        <h:outputLabel for="medico2" value="#{medicoControlador.citaActual.medico.nombre}" />
+                        
+                        <h:outputLabel for="paciente" value="Paciente: " />
+                        <h:outputLabel for="paciente2" value="#{medicoControlador.citaActual.paciente.nombre} #{medicoControlador.citaActual.paciente.apellidos}" /> 
+                        
+                        <h:outputLabel for="tarjeta" value="Tarjeta: " />
+                        <h:inputText id="tarjetaNuevo" value="#{medicoControlador.citaActual.paciente.numeroTarjetaSanitaria}"/>
+                        
+                        <h:outputLabel for="estado" value="Estado actual: "/>
+                        <h:inputText id="estadoNuevo" value="#{medicoControlador.citaActual.estado}"/>
+                        
+                        <h:outputLabel for="duracion" value="Duracion: "/>
+                        <h:inputText id="duracionNuevo" value="#{medicoControlador.citaActual.duracion}"/>
+                </h:panelGrid>
+                </h:form>
+                <h:form>
+                <h:panelGrid columns="2">
+                    <h:commandButton value="Guardar" action="#{medicoControlador.GuardarCita()}"/>
+                    <h:commandButton value="Cancelar" action="index.xhtml" />
+                </h:panelGrid>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>
+

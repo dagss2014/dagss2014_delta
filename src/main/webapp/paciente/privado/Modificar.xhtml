@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <body>
+        <ui:composition template="/plantillas/plantillaGlobal.xhtml">
+
+            <ui:define name="tituloPagina">
+                Modificar perfil del paciente
+            </ui:define>            
+            
+            <ui:define name="izquierda">
+
+            </ui:define>
+
+            <ui:define name="contenido">
+                <h:form>
+                    <h:messages showDetail="true"/>
+                    
+                    <h:panelGrid columns="3">
+                        <h:outputLabel for="nombre" value="Nombre:" />
+                        <h:inputText id="nombre" value="#{pacienteControlador.pacienteActual.nombre}" required="true"/>
+                        <h:message for="nombre"/>
+                    
+                        <h:outputLabel for="apellidos" value="Apellidos:" />
+                        <h:inputText id="apellidos" value="#{pacienteControlador.pacienteActual.apellidos}" required="true"/>
+                        <h:message for="apellidos"/>
+                    
+                        <h:outputLabel for="domicilio" value="Domicilio:" />
+                        <h:inputText id="domicilio" value="#{pacienteControlador.pacienteActual.direccion.domicilio}" required="true"/>
+                        <h:message for="domicilio"/>
+                        
+                        <h:outputLabel for="localidad" value="Localidad:" />
+                        <h:inputText id="localidad" value="#{pacienteControlador.pacienteActual.direccion.localidad}" required="true"/>
+                        <h:message for="localidad"/>
+                        
+                        <h:outputLabel for="codigoPostal" value="Codigo Postal:" />
+                        <h:inputText id="codigoPostal" value="#{pacienteControlador.pacienteActual.direccion.codigoPostal}" required="true"/>
+                        <h:message for="codigoPostal"/>
+                        
+                        <h:outputLabel for="provincia" value="Provincia:" />
+                        <h:inputText id="provincia" value="#{pacienteControlador.pacienteActual.direccion.provincia}" required="true"/>
+                        <h:message for="provincia"/>
+                        
+                        <h:outputLabel for="telefono" value="Telefono:" />
+                        <h:inputText id="telefono" value="#{pacienteControlador.pacienteActual.telefono}" required="true"/>
+                        <h:message for="telefono"/>
+                    
+                        <h:outputLabel for="email" value="Email:" />
+                        <h:inputText id="email" value="#{pacienteControlador.pacienteActual.email}" required="true"/>
+                        <h:message for="email"/>
+                    
+                        <h:outputLabel for="dni" value="dni:" />
+                        <h:inputText id="dni" value="#{pacienteControlador.pacienteActual.dni}" required="true"/>
+                        <h:message for="dni"/>
+                    
+                        <h:outputLabel for="numeroSeguridadSocial" value="numeroSeguridadSocial:" />
+                        <h:inputText id="numeroSeguridadSocial" value="#{pacienteControlador.pacienteActual.numeroSeguridadSocial}" required="true"/>
+                        <h:message for="numeroSeguridadSocial"/>
+                    
+                        <h:outputLabel for="numeroTarjetaSanitaria" value="numeroTarjetaSanitaria:" />
+                        <h:inputText id="numeroTarjetaSanitaria" value="#{pacienteControlador.pacienteActual.numeroTarjetaSanitaria}" required="true"/>
+                        <h:message for="numeroTarjetaSanitaria"/>
+                    
+                        <h:commandButton value="Guardar cambios" action="#{pacienteControlador.guardarModificacion()}"/>
+                        <h:commandButton value="Cancelar" action="#{pacienteControlador.cancelarModificacion()}"/>
+                    </h:panelGrid>  
+                </h:form>
+                
+            </ui:define>
+
+        </ui:composition>
+        
+        
+        
+    </body>
+</html>

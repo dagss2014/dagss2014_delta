@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <body>
+        <ui:composition template="/plantillas/plantillaGlobal.xhtml">
+
+            <ui:define name="tituloPagina">
+                Modificar perfil del medico
+            </ui:define>            
+            
+            <ui:define name="izquierda">
+
+            </ui:define>
+
+            <ui:define name="contenido">
+                <h:form>
+                    <h:panelGrid columns="3">
+                        <h:outputLabel for="password" value="Password:" />
+                        <h:inputText id="password" value="#{medicoControlador.password}" required="true"/>
+                        <h:message for="password"/>
+                        
+                        <h:outputLabel for="nombre" value="Nombre:" />
+                        <h:inputText id="nombre" value="#{medicoControlador.medicoActual.nombre}" required="true"/>
+                        <h:message for="nombre"/>
+                    
+                        <h:outputLabel for="apellidos" value="Apellidos:" />
+                        <h:inputText id="apellidos" value="#{medicoControlador.medicoActual.apellidos}" required="true"/>
+                        <h:message for="apellidos"/>
+                   
+                        <h:outputLabel for="numeroColegiado" value="numeroColegiado:" />
+                        <h:inputText id="numeroColegiado" value="#{medicoControlador.medicoActual.numeroColegiado}" required="true"/>
+                        <h:message for="numeroColegiado"/>
+                    
+                        <h:outputLabel for="telefono" value="Telefono:" />
+                        <h:inputText id="telefono" value="#{medicoControlador.medicoActual.telefono}" required="true"/>
+                        <h:message for="telefono"/>
+                    
+                        <h:outputLabel for="email" value="Email:" />
+                        <h:inputText id="email" value="#{medicoControlador.medicoActual.email}" required="true"/>
+                        <h:message for="email"/>
+                    
+                        <h:outputLabel for="dni" value="dni:" />
+                        <h:inputText id="dni" value="#{medicoControlador.medicoActual.dni}" required="true"/>
+                        <h:message for="dni"/>
+                   
+                        <h:commandButton value="Guardar cambios" action="#{medicoControlador.guardarModificacion()}"/>
+                        <h:commandButton value="Cancelar" action="#{medicoControlador.cancelarModificacion()}"/>
+                    </h:panelGrid>  
+                </h:form>
+                
+            </ui:define>
+
+        </ui:composition>
+        
+        
+        
+    </body>
+</html>
+
